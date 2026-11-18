@@ -1,8 +1,10 @@
 <script setup>
-const navigation = [
-  { label: '소개', href: '#about' },
-  { label: '경력', href: '#experience' }
-]
+defineProps({
+  navigation: {
+    type: Array,
+    required: true
+  }
+})
 </script>
 
 <template>

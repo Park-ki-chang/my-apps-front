@@ -101,6 +101,7 @@ export const careers = [
 /**
  * 상단 메뉴 데이터
  */
+
 export const navigation = [
     {
         id: 'about',
@@ -113,11 +114,17 @@ export const navigation = [
         href: '#experience'
     },
     {
+        id: 'personal-projects',
+        label: '프로젝트',
+        href: '#personal-projects'
+    },
+    {
         id: 'contact',
         label: '연락처',
         href: '#contact'
     }
 ]
+
 
 /**
  * 연락처 및 외부 링크 데이터
@@ -143,3 +150,43 @@ export const contactLinks = [
         external: false
     }
 ]
+
+
+/**
+ * 개인 프로젝트 데이터
+ */
+export const personalProjects = [
+    {
+        id: 'householdbook',
+        name: '가계부 웹 애플리케이션',
+        status: '개발 중',
+        period: '',
+        description:
+            'Vue와 Spring Boot를 학습하기 위해 개발한 가계부 웹 애플리케이션입니다.',
+
+        features: [
+            '수입 및 지출 내역 등록',
+            '거래 내역 조회, 수정, 삭제',
+            '월별 거래 내역 조회'
+        ],
+
+        technologies: [
+            {
+                category: 'Frontend',
+                items: ['Vue 3', 'JavaScript', 'Vite']
+            },
+            {
+                category: 'Backend',
+                items: ['Java', 'Spring Boot', 'MyBatis']
+            },
+            {
+                category: 'Database',
+                items: ['H2']
+            }
+        ],
+
+        // 공개할 저장소나 서비스 주소가 생기면 추가
+        links: []
+    }
+]
+
