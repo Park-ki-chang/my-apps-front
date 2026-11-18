@@ -1,0 +1,95 @@
+
+# ========================================
+# Logs
+# ========================================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ========================================
+# Node.js / npm
+# ========================================
+node_modules/
+.npm/
+.pnpm-store/
+
+# ========================================
+# Vite / Build
+# ========================================
+dist/
+dist-ssr/
+.vite/
+*.local
+
+# ========================================
+# Environment / Secrets
+# ========================================
+.env
+.env.*
+!.env.example
+
+# Certificates / Private keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# ========================================
+# Editor directories and files
+# ========================================
+
+# Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
+
+# IntelliJ IDEA / JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Visual Studio
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ========================================
+# macOS
+# ========================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ========================================
+# Test / Coverage
+# ========================================
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# ========================================
+# Temporary files
+# ========================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+temp/
+tmp/
+
+# ========================================
+# Git local backups
+# ========================================
+.git-backup/
