@@ -1,16 +1,23 @@
 /* Resume 전체 레이아웃 */
 .resume-page {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 24px 100px;
+    /* Resume 전용 색상 변수 */
+    --resume-text: #1f2937;
+    --resume-muted: #64748b;
+    --resume-border: #e2e8f0;
+    --resume-surface: #ffffff;
+    --resume-accent: #2563eb;
 
-    color: #242424;
-    line-height: 1.8;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 28px 100px;
+
+    color: var(--resume-text);
+    line-height: 1.75;
 }
 
-/* 이력서 페이지 공통 설정 */
+/* 메뉴를 클릭했을 때 스크롤 위치 */
 .resume-page section {
-    scroll-margin-top: 24px;
+    scroll-margin-top: 28px;
 }
 
 /* 태블릿 */
