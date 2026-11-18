@@ -31,7 +31,7 @@ defineProps({
 
     <!-- 담당 업무 -->
     <div
-        v-if="project.tasks && project.tasks.length > 0"
+        v-if="project.tasks.length > 0"
         class="detail"
     >
       <h5>담당 업무</h5>
@@ -48,7 +48,7 @@ defineProps({
 
     <!-- 주요 성과 -->
     <div
-        v-if="project.achievements && project.achievements.length > 0"
+        v-if="project.achievements.length > 0"
         class="detail"
     >
       <h5>주요 성과</h5>
@@ -65,19 +65,27 @@ defineProps({
 
     <!-- 사용 기술 -->
     <div
-        v-if="project.technologies && project.technologies.length > 0"
+        v-if="project.technologies.length > 0"
         class="detail"
     >
       <h5>사용 기술</h5>
 
-      <div class="technologies">
-        <span
-            v-for="tech in project.technologies"
-            :key="tech"
-            class="tech"
-        >
-          {{ tech }}
-        </span>
+      <div
+          v-for="group in project.technologies"
+          :key="group.category"
+          class="technology-group"
+      >
+        <h6>{{ group.category }}</h6>
+
+        <div class="technologies">
+          <span
+              v-for="tech in group.items"
+              :key="tech"
+              class="tech"
+          >
+            {{ tech }}
+          </span>
+        </div>
       </div>
     </div>
   </section>
@@ -127,6 +135,19 @@ defineProps({
   margin-bottom: 4px;
 }
 
+/* 기술 스택 카테고리 */
+.technology-group {
+  margin-top: 14px;
+}
+
+.technology-group h6 {
+  margin: 0 0 8px;
+  color: #777;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 기술 태그 */
 .technologies {
   display: flex;
   flex-wrap: wrap;
