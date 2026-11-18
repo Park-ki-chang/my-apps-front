@@ -1,4 +1,6 @@
 <script setup>
+import TechnologyList from './TechnologyList.vue'
+
 defineProps({
   project: {
     type: Object,
@@ -54,23 +56,9 @@ defineProps({
     >
       <h4>기술 스택</h4>
 
-      <div
-          v-for="group in project.technologies"
-          :key="group.category"
-          class="technology-group"
-      >
-        <h5>{{ group.category }}</h5>
-
-        <div class="technologies">
-          <span
-              v-for="tech in group.items"
-              :key="tech"
-              class="tech"
-          >
-            {{ tech }}
-          </span>
-        </div>
-      </div>
+      <TechnologyList
+          :technologies="project.technologies"
+      />
     </div>
 
     <!-- 프로젝트 링크 -->
@@ -146,7 +134,7 @@ defineProps({
 }
 
 .project-detail h4 {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-size: 15px;
 }
 
@@ -158,31 +146,6 @@ defineProps({
 .project-detail li {
   margin-bottom: 6px;
   font-size: 14px;
-}
-
-.technology-group {
-  margin-top: 14px;
-}
-
-.technology-group h5 {
-  margin: 0 0 8px;
-  font-size: 13px;
-  color: var(--resume-muted);
-}
-
-.technologies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tech {
-  padding: 5px 11px;
-  border: 1px solid #dbeafe;
-  border-radius: 6px;
-  background: #eff6ff;
-  color: #1d4ed8;
-  font-size: 12px;
 }
 
 .project-links {

@@ -1,4 +1,6 @@
 <script setup>
+import TechnologyList from './TechnologyList.vue'
+
 defineProps({
   project: {
     type: Object,
@@ -32,7 +34,7 @@ defineProps({
 
     <!-- 담당 업무 -->
     <div
-        v-if="project.tasks && project.tasks.length > 0"
+        v-if="project.tasks?.length"
         class="detail"
     >
       <h5>담당 업무</h5>
@@ -49,7 +51,7 @@ defineProps({
 
     <!-- 주요 성과 -->
     <div
-        v-if="project.achievements && project.achievements.length > 0"
+        v-if="project.achievements?.length"
         class="detail"
     >
       <h5>주요 성과</h5>
@@ -66,42 +68,26 @@ defineProps({
 
     <!-- 사용 기술 -->
     <div
-        v-if="project.technologies && project.technologies.length > 0"
+        v-if="project.technologies?.length"
         class="detail"
     >
       <h5>사용 기술</h5>
 
-      <div
-          v-for="group in project.technologies"
-          :key="group.category"
-          class="technology-group"
-      >
-        <h6>{{ group.category }}</h6>
-
-        <div class="technologies">
-          <span
-              v-for="tech in group.items"
-              :key="tech"
-              class="tech"
-          >
-            {{ tech }}
-          </span>
-        </div>
-      </div>
+      <TechnologyList
+          :technologies="project.technologies"
+      />
     </div>
 
   </section>
 </template>
 
 <style scoped>
-/* 프로젝트 구분 */
 .project {
   margin-top: 26px;
   padding-top: 24px;
   border-top: 1px solid var(--resume-border);
 }
 
-/* 프로젝트 제목과 기간 */
 .project-heading {
   display: flex;
   justify-content: space-between;
@@ -122,14 +108,12 @@ defineProps({
   font-size: 13px;
 }
 
-/* 프로젝트 설명 */
 .description {
   margin: 12px 0 0;
   color: var(--resume-muted);
   font-size: 15px;
 }
 
-/* 상세 정보 */
 .detail {
   margin-top: 22px;
 }
@@ -155,41 +139,6 @@ defineProps({
   font-size: 14px;
 }
 
-/* 기술 스택 그룹 */
-.technology-group {
-  margin-top: 14px;
-}
-
-.technology-group h6 {
-  margin: 0 0 8px;
-  color: var(--resume-muted);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-/* 기술 스택 태그 배치 */
-.technologies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-/* 개별 기술 태그 */
-.tech {
-  display: inline-block;
-  padding: 5px 11px;
-
-  background: #eff6ff;
-  color: #1d4ed8;
-
-  border: 1px solid #dbeafe;
-  border-radius: 6px;
-
-  font-size: 12px;
-  font-weight: 500;
-}
-
-/* 모바일 */
 @media (max-width: 640px) {
   .project-heading {
     flex-direction: column;
@@ -203,11 +152,6 @@ defineProps({
 
   .description {
     font-size: 14px;
-  }
-
-  .tech {
-    font-size: 12px;
-    padding: 4px 9px;
   }
 }
 </style>
