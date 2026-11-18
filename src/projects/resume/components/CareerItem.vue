@@ -1,5 +1,7 @@
 
 <script setup>
+import ProjectItem from './ProjectItem.vue'
+
 defineProps({
   career: {
     type: Object,
@@ -10,52 +12,23 @@ defineProps({
 
 <template>
   <article class="career">
+    <!-- 회사 정보 -->
     <div class="career-title">
       <h3>{{ career.company }}</h3>
       <span>{{ career.period }}</span>
     </div>
 
+    <!-- 담당 직무 -->
     <p class="position">
       {{ career.position }}
     </p>
 
-    <div
+    <!-- 프로젝트 목록 -->
+    <ProjectItem
         v-for="project in career.projects"
         :key="project.id"
-        class="project"
-    >
-      <h4>{{ project.name }}</h4>
-
-      <p class="period">
-        {{ project.period }}
-      </p>
-
-      <p class="description">
-        {{ project.description }}
-      </p>
-
-      <h5>담당 업무</h5>
-      <ul>
-        <li
-            v-for="task in project.tasks"
-            :key="task"
-        >
-          {{ task }}
-        </li>
-      </ul>
-
-      <h5>사용 기술</h5>
-
-      <div class="technologies">
-        <span
-            v-for="tech in project.technologies"
-            :key="tech"
-            class="tech"
-        >
-          {{ tech }}
-        </span>
-      </div>
-    </div>
+        :project="project"
+    />
   </article>
 </template>
 
@@ -76,8 +49,7 @@ defineProps({
   font-size: 22px;
 }
 
-.career-title span,
-.period {
+.career-title span {
   font-size: 14px;
   color: #888;
 }
@@ -85,43 +57,6 @@ defineProps({
 .position {
   margin-top: 8px;
   color: #666;
-}
-
-.project {
-  margin-top: 28px;
-  padding-left: 22px;
-  border-left: 2px solid #ddd;
-}
-
-.project h4 {
-  margin: 0;
-  font-size: 19px;
-}
-
-.description {
-  margin: 18px 0;
-}
-
-.project h5 {
-  margin: 24px 0 8px;
-  font-size: 15px;
-}
-
-.project ul {
-  padding-left: 20px;
-}
-
-.technologies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tech {
-  padding: 4px 10px;
-  border-radius: 5px;
-  background: #f3f3f3;
-  font-size: 13px;
 }
 
 @media (max-width: 640px) {
