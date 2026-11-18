@@ -1,7 +1,7 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import ResumeView from './projects/resume/ResumeView.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <ResumeView />
 </template>
