@@ -1,4 +1,3 @@
-
 export const profile = {
     name: '이름을 입력하세요',
     role: '웹 개발자',
@@ -96,5 +95,51 @@ export const careers = [
                 ]
             }
         ]
+    }
+]
+
+/**
+ * 상단 메뉴 데이터
+ */
+export const navigation = [
+    {
+        id: 'about',
+        label: '소개',
+        href: '#about'
+    },
+    {
+        id: 'experience',
+        label: '경력',
+        href: '#experience'
+    },
+    {
+        id: 'contact',
+        label: '연락처',
+        href: '#contact'
+    }
+]
+
+/**
+ * 연락처 및 외부 링크 데이터
+ * 아래 주소는 예시이므로 실제 주소로 변경해야 함
+ */
+export const contactLinks = [
+    {
+        id: 'github',
+        label: 'GitHub',
+        href: 'https://github.com/your-github-id',
+        external: true
+    },
+    {
+        id: 'blog',
+        label: '기술 블로그',
+        href: 'https://example.com',
+        external: true
+    },
+    {
+        id: 'email',
+        label: 'Email',
+        href: 'mailto:hello@example.com',
+        external: false
     }
 ]
