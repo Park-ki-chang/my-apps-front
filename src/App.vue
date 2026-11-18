@@ -1,7 +1,7 @@
 <script setup>
-import ResumeView from './projects/resume/ResumeView.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <ResumeView />
+  <RouterView />
 </template>
